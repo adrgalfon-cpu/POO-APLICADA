@@ -14,16 +14,22 @@ public class Tauler {
         disenyDibuix = plens;
     }
 
-    public void afegirRectangle(rectangle rectangleNou){
+    public void afegirRectangle(Rectangle RectangleNou){
         for (int files = 0; files < dashboard.length; files++) {
             for (int columnes = 0; columnes < dashboard[0].length; columnes++) {
-                if(rectangleNou.getDintreDimensions(files,columnes)){
-                    dashboard[files][columnes] = true;
+                if(RectangleNou.getDintreDimensions(files,columnes)){
+                    dashboard[columnes][files] = true;
                 }
             }
         }
     }
-
+    public void reiniciarTauler(){
+        for (int i = 0; i < dashboard.length; i++) {
+            for (int j = 0; j < dashboard[0].length; j++) {
+                dashboard[i][j] = false;
+            }
+        }
+    }
     public void dibuixarTauler(){
         for (int i = 0; i < dashboard.length; i++) {
             for (int j = 0; j < dashboard[0].length; j++) {
