@@ -23,6 +23,12 @@ public class Tauler {
             }
         }
     }
+    public int getRows(){
+        return dashboard[0].length;
+    }
+    public int getCols(){
+        return dashboard.length;
+    }
     public void reiniciarTauler(){
         for (int i = 0; i < dashboard.length; i++) {
             for (int j = 0; j < dashboard[0].length; j++) {
@@ -31,6 +37,7 @@ public class Tauler {
         }
     }
     public void dibuixarTauler(){
+        System.out.println();
         for (int i = 0; i < dashboard.length; i++) {
             for (int j = 0; j < dashboard[0].length; j++) {
                 if (dashboard[i][j]){

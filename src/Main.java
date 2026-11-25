@@ -8,22 +8,65 @@ public class Main {
         Es recomana ampliar la terminal fins poder veure els rectangles dins la matriu
          */
         //Nou objecte tauler
-        Tauler tauler = new Tauler(6, 6,"[ ]","▐█▌");
+        Scanner scanner = new Scanner(System.in);
+        Tauler tauler = new Tauler(10, 10,"[ ]","▐█▌");
         //Nou objecte rectangle
-        Rectangle rectangle = new Rectangle(0,0,3,2);
-        //Nou objecte rectangle1
-        Rectangle rectangle1 = new Rectangle(3,3,2,2);
-        //Afegim un l'objecte rectangle a la matriu interna de tauler (Clase Tauler)
-        tauler.afegirRectangle(rectangle);
-        tauler.afegirRectangle(rectangle1);
-        tauler.dibuixarTauler();
-        tauler.reiniciarTauler();
-        System.out.println();
-        tauler.dibuixarTauler();
-        rectangle.modificar(1,1,1,4);
-        tauler.afegirRectangle(rectangle);
-        tauler.afegirRectangle(rectangle1);
-        System.out.println();
-        tauler.dibuixarTauler();
+        Rectangle jugador = new Rectangle(0,0,1,1);
+        char direccio = 'o';
+        boolean running = true;
+        System.out.println("""
+                ===========================================================================
+                =============================Moure el jugador==============================
+                ===========================================================================
+                
+                Mou el teu personatje!!!
+                w, a, s, d com a controls basics i qualsevol altre lletra per sortir.
+                """);
+        while (running){
+            tauler.reiniciarTauler();
+            tauler.afegirRectangle(jugador);
+            tauler.dibuixarTauler();
+            direccio = scanner.next().charAt(0);
+            switch (direccio){
+                case 'w':
+                    jugador.modificar(
+                            jugador.getEsquerra(),
+                            jugador.getAmunt()-1,
+                            jugador.getlongitud(),
+                            jugador.getAltura()
+                    );
+                    break;
+                case 's':
+                    jugador.modificar(
+                            jugador.getEsquerra(),
+                            jugador.getAmunt()+1,
+                            jugador.getlongitud(),
+                            jugador.getAltura()
+                    );
+                    break;
+                case 'a':
+                    jugador.modificar(
+                            jugador.getEsquerra()-1,
+                            jugador.getAmunt(),
+                            jugador.getlongitud(),
+                            jugador.getAltura()
+                    );
+                    break;
+                case 'd':
+                    jugador.modificar(
+                            jugador.getEsquerra()+1,
+                            jugador.getAmunt(),
+                            jugador.getlongitud(),
+                            jugador.getAltura()
+                    );
+                    break;
+                default:
+                    System.out.println("Sortint del joc");
+                    running = false;
+                    break;
+            }
+
+
+        }
     }
 }

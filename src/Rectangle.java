@@ -6,26 +6,31 @@ public class Rectangle {
     public Rectangle(int x, int y, int longitud, int altura){
         this.x = x;
         this.y = y;
-        this.longitud = longitud-1;
-        this.altura = altura-1;
+        this.longitud = longitud;
+        this.altura = altura;
     }
     public int getEsquerra(){
         return x;
     }
     public int getDreta(){
-        return x+longitud;
+        return longitud+x-1;
     }
+    public int getAbaix(){return altura+y-1;}
     public int getAmunt(){
         return y;
     }
-    public int getAbaix(){
-        return y+altura;
-    }
+
     public void modificar(int novaX, int novaY, int novaLongitud, int novaAltura){
         x = novaX;
         y = novaY;
-        altura = novaAltura-1;
-        longitud = novaLongitud-1;
+        altura = novaAltura;
+        longitud = novaLongitud;
+    }
+    public int getlongitud (){
+        return longitud;
+    }
+    public int getAltura (){
+        return altura;
     }
     public boolean getDintreDimensions(int coordX, int coordY){
         boolean check = false;
