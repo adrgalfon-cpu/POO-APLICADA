@@ -32,7 +32,7 @@ public class Rectangle {
     public int getAltura (){
         return altura;
     }
-    public boolean getDintreDimensions(int coordX, int coordY){
+    public boolean getDinsDimensions(int coordX, int coordY){
         boolean check = false;
         if ((coordX>=getEsquerra()&&coordX<=getDreta())&&(coordY>=getAmunt()&&coordY<=getAbaix())){
             check = true;

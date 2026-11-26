@@ -1,5 +1,3 @@
-import java.util.Arrays;
-
 public class Tauler {
 
 
@@ -17,7 +15,7 @@ public class Tauler {
     public void afegirRectangle(Rectangle RectangleNou){
         for (int files = 0; files < dashboard.length; files++) {
             for (int columnes = 0; columnes < dashboard[0].length; columnes++) {
-                if(RectangleNou.getDintreDimensions(files,columnes)){
+                if(RectangleNou.getDinsDimensions(files,columnes)){
                     dashboard[columnes][files] = true;
                 }
             }
